@@ -1,20 +1,41 @@
-let drawGrid = () => {
+const init = () => {
+    const initSquaresPerSide = 16;
+    drawGrid(initSquaresPerSide);
+
+    const startButton = document.querySelector(".header button");
+    startButton.addEventListener("click", () => {
+        const container = document.querySelector(".container");
+        container.textContent = "";
+
+        let squaresPerSide = 0;
+        let keepGoing = true;
+        while (keepGoing) {
+            squaresPerSide = Number(prompt("Enter number of squares per side [1, 100]", 16));
+
+            if (squaresPerSide <= 100 && squaresPerSide > 0) {
+                keepGoing = false;
+            }
+        }
+        
+        drawGrid(squaresPerSide);
+    });
+};
+
+const drawGrid = (squares) => {
     const container = document.querySelector(".container");
 
-    let rowsCount = 16;
-    let tilesPerRow = 16;
+    let rowsCount = squares;
+    let tilesPerRow = squares;
     while (rowsCount--) {
         const rowDiv = document.createElement("div");
         rowDiv.classList.add("row")
         
         while (tilesPerRow--) {
             const div = document.createElement("div");
-            // div.classList.add("tile");
             div.id = `tile-r${rowsCount}-c${tilesPerRow}`;
-            
             rowDiv.appendChild(div);
         }
-        tilesPerRow = 16;
+        tilesPerRow = squares;
 
         container.appendChild(rowDiv);
     }
@@ -26,9 +47,7 @@ let drawGrid = () => {
             // console.log(`Mouse entered tile ${targetElement.id}`);
             targetElement.style.backgroundColor = "red";
         }
-
-        
     });
 }
 
-drawGrid();
+init();

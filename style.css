@@ -21,15 +21,16 @@ button {
 }
 
 .container {
-    /* height: 100vh; */
+    height: 960px;
     display: flex;
-    justify-content:flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 1px;
 }
 
 .row {
-    height: 50px;
+    flex: 1;
+    width: 960px;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -37,7 +38,7 @@ button {
 }
 
 .row div {
-    width: 50px;
+    flex: 1;
     flex-shrink: 0;
     background-color: black;
 }

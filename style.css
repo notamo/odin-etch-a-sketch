@@ -5,3 +5,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.row {
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+}
+
+.tile {
+    width: 30px;
+    flex-shrink: 0;
+    background-color: black;
+}
+

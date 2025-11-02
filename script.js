@@ -45,7 +45,11 @@ const drawGrid = (squares) => {
 
         if (targetElement.id) {
             // console.log(`Mouse entered tile ${targetElement.id}`);
-            targetElement.style.backgroundColor = "red";
+            let newColor = { red: 0, green: 0, blue: 0 };
+            for (const color in newColor) {
+                newColor[color] = Math.floor(Math.random() * 256);
+            }
+            targetElement.style.backgroundColor = `rgb(${newColor.red} ${newColor.green} ${newColor.blue})`;
         }
     });
 }
